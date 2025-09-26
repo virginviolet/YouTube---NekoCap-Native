@@ -88,14 +88,6 @@ domain("nekocap.com") {
         fill: var(--yt-spec-text-primary);
     }
 
-    /*Remove caption dropdown arrow*/
-    .ant-select-arrow {
-        /*display: none !important;
-    }
-    .ant-select-selection-placeholder {
-        padding-inline-end: 0px !important;*/
-    }
-
     /*Remove close button*/
     #nekocap-menu-container>.scoped-antd>div> :has(> .anticon-close) {
         /*order:3*/
