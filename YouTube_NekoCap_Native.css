@@ -22,6 +22,10 @@ domain("nekocap.com") {
         border: none;
     }
 
+    #nekocap-menu-container>.scoped-antd>* {
+        justify-content: space-around;
+    }
+
     /*Adjust buttons*/
     #nekocap-menu-container>.scoped-antd button {
         background: rgba(0, 0, 0, 0.05);
@@ -31,28 +35,37 @@ domain("nekocap.com") {
         border-radius: 18px;
     }
 
-    #nekocap-menu-container>div>div>.ant-dropdown-trigger {
+    #nekocap-menu-container>div>div>.ant-dropdown-trigger,
+    #nekocap-menu-container>.scoped-antd>div>.ant-spin-nested-loading>.ant-spin-container>.ant-select>.ant-select-selector,
+    button.ant-btn {
         border-top-color: var(--yt-spec-icon-inactive);
         border-color: var(--yt-spec-icon-inactive) !important;
         color: var(--yt-spec-text-primary) !important;
     }
 
     /*Adjust caption selection button*/
-    .ant-select-selector {
+    #nekocap-menu-container>.scoped-antd>div>.ant-spin-nested-loading>.ant-spin-container>.ant-select>.ant-select-selector {
         background: rgba(0, 0, 0, 0.05) !important;
         opacity: 100%;
         border: none !important;
     }
 
-    .ant-select-selection-placeholder {
+    /*When captions are selectable*/
+    #nekocap-menu-container>.scoped-antd>div>.ant-spin-nested-loading>.ant-spin-container>.ant-select>.ant-select-selector>.ant-select-selection-wrap>.ant-select-selection-placeholder {
         color: var(--yt-spec-text-primary) !important;
         font-weight: 500;
         font-family: "Roboto", "Arial", sans-serif;
     }
 
+    /*When a caption is loaded*/
+    #nekocap-menu-container>.scoped-antd>div>.ant-spin-nested-loading>.ant-spin-container>.ant-select>.ant-select-selector>.ant-select-selection-wrap>.ant-select-selection-item {
+        font-family: "Roboto", "Arial", sans-serif !important;
+        font-weight: 500 !important;
+    }
+
     /*Add captions icon*/
     #nekocap-menu-container>div>div>.ant-spin-nested-loading>.ant-spin-container>button:nth-child(1):before,
-    .ant-select-selection-wrap:before {
+    div#nekocap-menu-container>div.scoped-antd>div>div.ant-spin-nested-loading>div.ant-spin-container>div.ant-select>div.ant-select-selector>span.ant-select-selection-wrap:before {
         content: '';
         -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' id='mdi-subtitles-outline' viewBox='0 0 24 24'><path d='M20,4A2,2 0 0,1 22,6V18A2,2 0 0,1 20,20H4A2,2 0 0,1 2,18V6A2,2 0 0,1 4,4H20M20,18V6H4V18H20M6,10H8V12H6V10M6,14H14V16H6V14M16,14H18V16H16V14M10,10H18V12H10V10Z' /></svg>");
         mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' id='mdi-subtitles-outline' viewBox='0 0 24 24'><path d='M20,4A2,2 0 0,1 22,6V18A2,2 0 0,1 20,20H4A2,2 0 0,1 2,18V6A2,2 0 0,1 4,4H20M20,18V6H4V18H20M6,10H8V12H6V10M6,14H14V16H6V14M16,14H18V16H16V14M10,10H18V12H10V10Z' /></svg>");
