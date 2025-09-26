@@ -2,7 +2,7 @@
 @name           YouTube - NekoCap Native
 @namespace      github.com/openstyles/stylus
 @version        0.2.0
-@description    A new userstyle
+@description    Makes NekoCap's toolbar fit YouTube's native design.
 @author         Violet
 ==/UserStyle== */
 @-moz-document domain("youtube.com"), domain("nekocap.com") {
