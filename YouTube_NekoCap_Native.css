@@ -1,50 +1,116 @@
 /* ==UserStyle==
 @name           YouTube - NekoCap Native
 @namespace      github.com/openstyles/stylus
-@version        0.2.0
+@version        0.3.0
 @description    Makes NekoCap's toolbar fit YouTube's native design.
 @author         Violet
 ==/UserStyle== */
-@-moz-document domain("youtube.com"), domain("nekocap.com") {
+@-moz-document domain("youtube.com"),
+domain("nekocap.com") {
 
-    #nekocap-menu-container,
-    .sc-cMKwuH>div:nth-child(1),
-    .scoped-antd {
-        flex-basis: max-content;
+    #nekocap-menu-container {
+        /* pushes it to the right */
+        margin-left: auto;
+        border: 1px solid var(--yt-spec-10-percent-layer);
+        border-radius: 12px;
+    }
+
+    #nekocap-menu-container>.scoped-antd {
         margin-top: 0px;
-
-    }
-
-    .scoped-antd {
-        background: none !important;
+        background: none;
         border: none;
-        font-family: Roboto, Arial, sans-serif !important;
-        text-transform: lowercase !important;
     }
 
-    .scoped-antd button {
-        text-transform: uppercase !important;
-        background: none !important;
-        font-size: var(--ytd-tab-system_-_font-size);
-        font-weight: var(--ytd-tab-system_-_font-weight) !important;
-        letter-spacing: var(--ytd-tab-system_-_letter-spacing) !important;
-        border-color: inherit !important;
+    /*Adjust buttons*/
+    #nekocap-menu-container>.scoped-antd button {
+        background: rgba(0, 0, 0, 0.05);
+        font-family: "Roboto", "Arial", sans-serif;
+        font-weight: 500;
+        border: none !important;
+        border-radius: 18px;
     }
 
-    /**.ant-dropdown-open {
-        border-top-color: #030303!important;
-        border-color: #030303!important;
-        color:#030303!important;
-    }**/
+    #nekocap-menu-container>div>div>.ant-dropdown-trigger {
+        border-top-color: var(--yt-spec-icon-inactive);
+        border-color: var(--yt-spec-icon-inactive) !important;
+        color: var(--yt-spec-text-primary) !important;
+    }
 
-.nekocap-caption-text {
-    font-family: "YouTube Noto", Roboto, "Arial Unicode Ms", Arial, Helvetica, Verdana, "PT Sans Caption", sans-serif;
-    border-radius: 0.0em !important;
-    background: rgba(8, 8, 8, 0.75) !important;
-}
+    /*Adjust caption selection button*/
+    .ant-select-selector {
+        background: rgba(0, 0, 0, 0.05) !important;
+        opacity: 100%;
+        border: none !important;
+    }
 
-/*Hide logo*/
-:has(> div > [href^="https://nekocap.com/"]) {
-    display: none;
-}
+    .ant-select-selection-placeholder {
+        color: var(--yt-spec-text-primary) !important;
+        font-weight: 500;
+        font-family: "Roboto", "Arial", sans-serif;
+    }
+
+    /*Add captions icon*/
+    #nekocap-menu-container>div>div>.ant-spin-nested-loading>.ant-spin-container>button:nth-child(1):before,
+    .ant-select-selection-wrap:before {
+        content: '';
+        -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' id='mdi-subtitles-outline' viewBox='0 0 24 24'><path d='M20,4A2,2 0 0,1 22,6V18A2,2 0 0,1 20,20H4A2,2 0 0,1 2,18V6A2,2 0 0,1 4,4H20M20,18V6H4V18H20M6,10H8V12H6V10M6,14H14V16H6V14M16,14H18V16H16V14M10,10H18V12H10V10Z' /></svg>");
+        mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' id='mdi-subtitles-outline' viewBox='0 0 24 24'><path d='M20,4A2,2 0 0,1 22,6V18A2,2 0 0,1 20,20H4A2,2 0 0,1 2,18V6A2,2 0 0,1 4,4H20M20,18V6H4V18H20M6,10H8V12H6V10M6,14H14V16H6V14M16,14H18V16H16V14M10,10H18V12H10V10Z' /></svg>");
+        background-size: cover;
+        width: 24px;
+        height: 24px;
+        background-color: var(--yt-spec-text-primary);
+        margin-left: 5px;
+    }
+
+    #nekocap-menu-container>div>div>.ant-spin-nested-loading>.ant-spin-container>button:nth-child(1):before {
+        opacity: 50%;
+        background-color: rgba(0, 0, 0, 0.25)
+    }
+
+    div#nekocap-menu-container>div.scoped-antd>div>div.ant-spin-nested-loading>div.ant-spin-container>div.ant-select>div.ant-select-selector>span.ant-select-selection-wrap.ant-select-selection-wrap:before {
+        margin-top: 3px;
+        margin-right: 8px;
+    }
+
+    /*Add Editor icon*/
+    div#nekocap-menu-container>div.scoped-antd>div>button.ant-dropdown-trigger:before {
+        content: '';
+        -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path d='m7 17.013 4.413-.015 9.632-9.54c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.756-.756-2.075-.752-2.825-.003L7 12.583v4.43zM18.045 4.458l1.589 1.583-1.597 1.582-1.586-1.585 1.594-1.58zM9 13.417l6.03-5.973 1.586 1.586-6.029 5.971L9 15.006v-1.589z'/><path d='M5 21h14c1.103 0 2-.897 2-2v-8.668l-2 2V19H8.158c-.026 0-.053.01-.079.01-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2z'/></svg>");
+        mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path d='m7 17.013 4.413-.015 9.632-9.54c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.756-.756-2.075-.752-2.825-.003L7 12.583v4.43zM18.045 4.458l1.589 1.583-1.597 1.582-1.586-1.585 1.594-1.58zM9 13.417l6.03-5.973 1.586 1.586-6.029 5.971L9 15.006v-1.589z'/><path d='M5 21h14c1.103 0 2-.897 2-2v-8.668l-2 2V19H8.158c-.026 0-.053.01-.079.01-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2z'/></svg>");
+        background-size: cover;
+        width: 22px;
+        height: 22px;
+        background-color: var(--yt-spec-text-primary);
+    }
+
+    /*Change color of caption dropdown arrow*/
+    div#nekocap-menu-container>div.scoped-antd>div>div.ant-spin-nested-loading>div.ant-spin-container>div.ant-select-show-arrow>span.ant-select-arrow>span.anticon>svg:nth-child(1) {
+        fill: var(--yt-spec-text-primary);
+    }
+
+    /*Remove caption dropdown arrow*/
+    .ant-select-arrow {
+        /*display: none !important;
+    }
+    .ant-select-selection-placeholder {
+        padding-inline-end: 0px !important;*/
+    }
+
+    /*Remove close button*/
+    #nekocap-menu-container>.scoped-antd>div> :has(> .anticon-close) {
+        /*order:3*/
+        display: none;
+    }
+
+    /*Change the look of the captions*/
+    .nekocap-caption-text {
+        font-family: "YouTube Noto", Roboto, "Arial Unicode Ms", Arial, Helvetica, Verdana, "PT Sans Caption", sans-serif;
+        border-radius: 0.0em !important;
+        background: rgba(8, 8, 8, 0.75) !important;
+    }
+
+    /*Hide logo*/
+    #nekocap-menu-container>.scoped-antd> :has([href="https://nekocap.com/"]) {
+        display: none;
+    }
 }
