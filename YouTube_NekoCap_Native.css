@@ -1,0 +1,43 @@
+/* ==UserStyle==
+@name           YouTube - NekoCap Native
+@namespace      github.com/openstyles/stylus
+@version        0.2.0
+@description    A new userstyle
+@author         Violet
+==/UserStyle== */
+@-moz-document domain("youtube.com"), domain("nekocap.com") {
+    #nekocap-menu-container, .sc-cMKwuH > div:nth-child(1), .scoped-antd {
+flex-basis: max-content;
+        margin-top: 0px;
+        
+    }
+    .scoped-antd {
+        background: none !important;
+        border: none;
+        font-family: Roboto, Arial, sans-serif!important;
+        text-transform: lowercase!important;
+    }
+    .scoped-antd button {
+        text-transform: uppercase!important;
+        background: none!important;
+        font-size: var(--ytd-tab-system_-_font-size);
+        font-weight: var(--ytd-tab-system_-_font-weight)!important;
+        letter-spacing: var(--ytd-tab-system_-_letter-spacing)!important;
+        border-color: inherit!important;
+    }
+    /**.ant-dropdown-open {
+        border-top-color: #030303!important;
+        border-color: #030303!important;
+        color:#030303!important;
+    }**/
+    }
+	.nekocap-caption-text {
+		font-family: "YouTube Noto", Roboto, "Arial Unicode Ms", Arial, Helvetica, Verdana, "PT Sans Caption", sans-serif;
+		border-radius: 0.0em !important;
+		background: rgba(8, 8, 8, 0.75) !important;
+	}
+    /*Hide logo*/
+    :has(> div > [href^="https://nekocap.com/"]) {
+        display: none;
+    }
+}
