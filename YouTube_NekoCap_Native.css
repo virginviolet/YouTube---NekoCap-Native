@@ -102,15 +102,15 @@ domain("nekocap.com") {
         display: none;
     }
 
+    /*Hide logo*/
+    #nekocap-menu-container>.scoped-antd> :has([href="https://nekocap.com/"]) {
+        display: none;
+    }
+
     /*Change the look of the captions*/
     .nekocap-caption-text {
         font-family: "YouTube Noto", Roboto, "Arial Unicode Ms", Arial, Helvetica, Verdana, "PT Sans Caption", sans-serif;
         border-radius: 0.0em !important;
         background: rgba(8, 8, 8, 0.75) !important;
-    }
-
-    /*Hide logo*/
-    #nekocap-menu-container>.scoped-antd> :has([href="https://nekocap.com/"]) {
-        display: none;
     }
 }
