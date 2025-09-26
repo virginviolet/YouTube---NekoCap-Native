@@ -9,6 +9,7 @@
 domain("nekocap.com") {
 
     #nekocap-menu-container {
+        order: 2;
         /* pushes it to the right */
         margin-left: auto;
         border: 1px solid var(--yt-spec-10-percent-layer);
