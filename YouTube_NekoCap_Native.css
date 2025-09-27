@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           YouTube - NekoCap Native
 @namespace      github.com/openstyles/stylus
-@version        0.3.0
+@version        0.4.0
 @description    Makes NekoCap's toolbar fit YouTube's native design.
 @author         Violet
 ==/UserStyle== */
@@ -20,6 +20,8 @@ domain("nekocap.com") {
         margin-top: 0px;
         background: none;
         border: none;
+        /*Adjust the word "by"*/
+        color: var(--yt-spec-text-secondary)
     }
 
     #nekocap-menu-container>.scoped-antd>* {
@@ -27,8 +29,25 @@ domain("nekocap.com") {
     }
 
     /*Adjust buttons*/
+    @media screen {
+        @media (prefers-color-scheme: dark) {
+
+            /* dark mode */
+            #nekocap-menu-container>.scoped-antd button {
+                background-color: black;
+            }
+
+        }
+
+        /* dark mode */
+        [data-darkreader-mode="dynamic"] #nekocap-menu-container>.scoped-antd button {
+            background-color: var(--darkreader-background-d3d3d3) !important;
+        }
+
+    }
+
     #nekocap-menu-container>.scoped-antd button {
-        background: rgba(0, 0, 0, 0.05);
+        background-color: var(--yt-spec-additive-background);
         font-family: "Roboto", "Arial", sans-serif;
         font-weight: 500;
         border: none !important;
@@ -40,12 +59,30 @@ domain("nekocap.com") {
     button.ant-btn {
         border-top-color: var(--yt-spec-icon-inactive);
         border-color: var(--yt-spec-icon-inactive) !important;
-        color: var(--yt-spec-text-primary) !important;
+        color: var(--yt-spec-text-primary);
     }
 
     /*Adjust caption selection button*/
+    @media screen {
+        @media (prefers-color-scheme: dark) {
+
+            /* dark mode */
+            #nekocap-menu-container>.scoped-antd>div>.ant-spin-nested-loading>.ant-spin-container>.ant-select>.ant-select-selector {
+                background-color: black;
+            }
+
+        }
+
+        /* dark mode */
+        [data-darkreader-mode="dynamic"] #nekocap-menu-container>.scoped-antd>div>.ant-spin-nested-loading>.ant-spin-container>.ant-select>.ant-select-selector {
+            background-color: var(--darkreader-background-d3d3d3) !important;
+            border-radius: 18px;
+        }
+
+    }
+
     #nekocap-menu-container>.scoped-antd>div>.ant-spin-nested-loading>.ant-spin-container>.ant-select>.ant-select-selector {
-        background: rgba(0, 0, 0, 0.05) !important;
+        background: var(--yt-spec-badge-chip-background) !important;
         opacity: 100%;
         border: none !important;
     }
@@ -76,11 +113,17 @@ domain("nekocap.com") {
         margin-left: 5px;
     }
 
-    #nekocap-menu-container>div>div>.ant-spin-nested-loading>.ant-spin-container>button:nth-child(1):before {
-        opacity: 50%;
-        background-color: rgba(0, 0, 0, 0.25)
+    /*Adjust "No captions found" text*/
+    .ant-spin-container>[disabled=""] {
+        color: var(--yt-spec-text-secondary) !important;
     }
 
+    /*Icon color when no captions found (I think)*/
+    #nekocap-menu-container>div>div>.ant-spin-nested-loading>.ant-spin-container>button:nth-child(1):before {
+        background-color: var(--yt-spec-text-secondary);
+    }
+
+    /*Tweak icon position when caption is loaded*/
     div#nekocap-menu-container>div.scoped-antd>div>div.ant-spin-nested-loading>div.ant-spin-container>div.ant-select>div.ant-select-selector>span.ant-select-selection-wrap.ant-select-selection-wrap:before {
         margin-top: 3px;
         margin-right: 8px;
@@ -98,8 +141,45 @@ domain("nekocap.com") {
     }
 
     /*Change color of caption dropdown arrow*/
-    div#nekocap-menu-container>div.scoped-antd>div>div.ant-spin-nested-loading>div.ant-spin-container>div.ant-select-show-arrow>span.ant-select-arrow>span.anticon>svg:nth-child(1) {
-        fill: var(--yt-spec-text-primary);
+    @media screen {
+        @media (prefers-color-scheme: dark) {
+            div#nekocap-menu-container>div.scoped-antd>div>div.ant-spin-nested-loading>div.ant-spin-container>div.ant-select-show-arrow>span.ant-select-arrow>span.anticon>svg:nth-child(1) {
+                /* dark mode */
+                fill: var(--yt-spec-text-primary) !important;
+            }
+        }
+
+        /* dark mode */
+        [data-darkreader-mode="dynamic"] div#nekocap-menu-container>div.scoped-antd>div>div.ant-spin-nested-loading>div.ant-spin-container>div.ant-select-show-arrow>span.ant-select-arrow>span.anticon>svg:nth-child(1) {
+            fill: var(--yt-spec-text-primary);
+        }
+    }
+
+    div#nekocap-menu-container>div.scoped-antd>div>div.ant-spin-nested-loading>div.ant-spin-container>div.ant-select-show-arrow>span.ant-select-arrow {
+        fill: var(--yt-spec-text-primary) !important;
+    }
+
+    /*Adjust subtitler text*/
+    #nekocap-menu-container>.scoped-antd>div>[href^='https://nekocap.com/capper/'] {
+        color: var(--yt-spec-text-primary) !important;
+        text-decoration: none;
+    }
+
+    /*Adjust caption like and dislike buttons*/
+    .anticon-like>svg>path:nth-child(1),
+    .anticon-dislike>svg>path:nth-child(1) {
+        fill: transparent !important;
+    }
+
+    .anticon-like>svg>path:nth-child(2),
+    .anticon-dislike>svg>path:nth-child(2) {
+        fill: var(--yt-spec-text-primary) !important;
+    }
+
+    /*Adjust like/dislike count text*/
+    #nekocap-menu-container>.scoped-antd>div>.ant-space {
+        color: var(--yt-spec-text-primary);
+        font-size: 14px;
     }
 
     /*Remove close button*/
