@@ -62,6 +62,12 @@ domain("nekocap.com") {
         color: var(--yt-spec-text-primary);
     }
 
+    /*Remove close button*/
+    #nekocap-menu-container>.scoped-antd>div> :has(> .anticon-close) {
+        /*order:3*/
+        display: none;
+    }
+
     /*Adjust caption selection button*/
     @media screen {
         @media (prefers-color-scheme: dark) {
@@ -180,12 +186,6 @@ domain("nekocap.com") {
     #nekocap-menu-container>.scoped-antd>div>.ant-space {
         color: var(--yt-spec-text-primary);
         font-size: 14px;
-    }
-
-    /*Remove close button*/
-    #nekocap-menu-container>.scoped-antd>div> :has(> .anticon-close) {
-        /*order:3*/
-        display: none;
     }
 
     /*Hide logo*/
